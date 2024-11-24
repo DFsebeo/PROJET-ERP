@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Fournisseur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centrer le texte */
+            background-color: #5e4a87;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .section-header {
+            font-size: 18px;
+            font-weight: bold;
+            color: #5e4a87;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            width: 180px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            flex: 1;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        .remarks-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .remarks-container label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .remarks-container textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+            background-color: #f9f9f9;
+        }
+
+        .btn-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #5e4a87;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #473a6a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">DÉTAILS DU FOURNISSEUR</div>
+
+    <!-- Section Général -->
+    <div class="section">
+        <div class="section-header">Général</div>
+        <div class="form-group">
+            <label for="societe">Société :</label>
+            <input type="text" id="societe" name="societe" value="ETS ABOBOLAIS">
+        </div>
+    </div>
+
+    <!-- Section Contact Principal -->
+    <div class="section">
+        <div class="section-header">Contact Principal</div>
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" value="ABOBOLAIS">
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom">
+        </div>
+        <div class="form-group">
+            <label for="fonction">Fonction :</label>
+            <input type="text" id="fonction" name="fonction" value="TECHNICIEN">
+        </div>
+    </div>
+
+    <!-- Section Téléphone -->
+    <div class="section">
+        <div class="section-header">Téléphone</div>
+        <div class="form-group">
+            <label for="tel_pro">Téléphone professionnel :</label>
+            <input type="text" id="tel_pro" name="tel_pro">
+        </div>
+        <div class="form-group">
+            <label for="tel_mobile">Téléphone mobile :</label>
+            <input type="text" id="tel_mobile" name="tel_mobile" value="07-07-61-67-04">
+        </div>
+        <div class="form-group">
+            <label for="telecopie">Numéro de télécopie :</label>
+            <input type="text" id="telecopie" name="telecopie">
+        </div>
+    </div>
+
+    <!-- Section Adresse -->
+    <div class="section">
+        <div class="section-header">Adresse</div>
+        <div class="form-group">
+            <label for="rue">Rue :</label>
+            <input type="text" id="rue" name="rue">
+        </div>
+        <div class="form-group">
+            <label for="ville">Ville :</label>
+            <input type="text" id="ville" name="ville" value="ABIDJAN">
+        </div>
+        <div class="form-group">
+            <label for="departement">Département :</label>
+            <input type="text" id="departement" name="departement">
+        </div>
+        <div class="form-group">
+            <label for="code_postal">Code postal :</label>
+            <input type="text" id="code_postal" name="code_postal">
+        </div>
+        <div class="form-group">
+            <label for="pays">Pays/Région :</label>
+            <input type="text" id="pays" name="pays">
+        </div>
+    </div>
+
+    <!-- Section Remarques -->
+    <div class="remarks-container">
+        <label for="remarques">Remarques :</label>
+        <textarea id="remarques" name="remarques" placeholder="Ajouter des remarques ici..."></textarea>
+    </div>
+
+    <!-- Bouton Enregistrer -->
+    <div class="btn-container">
+        <button class="btn">ENREGISTRER</button>
+    </div>
+</div>
+
+</body>
+</html>

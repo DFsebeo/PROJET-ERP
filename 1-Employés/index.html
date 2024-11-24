@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion intégrée Transport</title>
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #5E4A87;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+            max-width: 1400px;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background-color: #F4F0F8;
+            border: 1px solid #ddd;
+            width: 180px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            background-color: #5E4A87;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .button-grid {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            gap: 5px;
+        }
+
+        .button {
+            background-color: white;
+            color: #5E4A87;
+            border: 1px solid #5E4A87;
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #5E4A87;
+            color: white;
+        }
+
+        .footer {
+            background-color: #eee;
+            text-align: center;
+            padding: 15px;
+            color: #5E4A87;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: #5E4A87;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    Bienvenue dans la gestion intégrée Transport
+</div>
+
+<div class="container">
+    <!-- Row 1: 6 Columns -->
+    <div class="row">
+        <div class="section">
+            <div class="section-header">Flotte</div>
+            <div class="button-grid">
+                <div class="button">Véhicules</div>
+                <div class="button">Remorques</div>
+                <div class="button">Kilométrage</div>
+                <div class="button">Camions</div>
+                <div class="button">Contrat Location</div>
+                <div class="button">Contrat d'achats</div>
+                <div class="button">Contrat de leasing</div>
+                <div class="button">Index Horaire</div>
+                <div class="button">Disponibilité des engins</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Consommation</div>
+            <div class="button-grid">
+                <div class="button">Carburant</div>
+                <div class="button">Recharges de</div>
+                <div class="button">Autoroutes</div>
+                <div class="button">Bascules</div>
+                <div class="button">Dépenses</div>
+                <div class="button">Frais généraux</div>
+                <div class="button">Cartes</div>
+                <div class="button">Péages</div>
+                <div class="button">Services</div>
+                <div class="button">Recharge citerne</div>
+                <div class="button">CIT</div>
+                <div class="button">Contrat de leasing</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Administratif</div>
+            <div class="button-grid">
+                <div class="button">Assurance</div>
+                <div class="button">Carte grise</div>
+                <div class="button">Taxes</div>
+                <div class="button">Extincteurs</div>
+                <div class="button">Autorisations</div>
+                <div class="button">Permis de conduire</div>
+                <div class="button">Agréments</div>
+                <div class="button">Carte de stationnement</div>
+                <div class="button">Vignettes</div>
+                <div class="button">Carte de transport</div>
+                <div class="button">Contacts</div>
+                <div class="button">Carnet météorologique</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Maintenance</div>
+            <div class="button-grid">
+                <div class="button">Demandes d'interventions</div>
+                <div class="button">Plan d'entretien</div>
+                <div class="button">Bon de commande</div>
+                <div class="button">Devis</div>
+                <div class="button">Intervention</div>
+                <div class="button">Diagnostics</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Stock</div>
+            <div class="button-grid">
+                <div class="button">Inventaire initial</div>
+                <div class="button">BCI</div>
+                <div class="button">Bon de sortie</div>
+                <div class="button">Bon de retour</div>
+                <div class="button">Etat de stock</div>
+                <div class="button">Correction de</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Affectation</div>
+            <div class="button-grid">
+                <div class="button">Affectation</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2: 7 Columns (including Achat and Service) -->
+    <div class="row">
+        <div class="section">
+            <div class="section-header">Achat</div>
+            <div class="button-grid">
+                <div class="button">Demandes d'achats</div>
+                <div class="button">Devis</div>
+                <div class="button">Bon de commande</div>
+                <div class="button">Facture fournisseur</div>
+                <div class="button">Facture d'avoir</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Pneumatique</div>
+            <div class="button-grid">
+                <div class="button">Pneumatique</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Ventes</div>
+            <div class="button-grid">
+                <div class="button">BC</div>
+                <div class="button">Devis</div>
+                <div class="button">Bon de livraison</div>
+                <div class="button">Facture clients</div>
+                <div class="button">Clients</div>
+                <div class="button">Fournisseurs</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Finances</div>
+            <div class="button-grid">
+                <div class="button">Caisse</div>
+                <div class="button">Carnet de</div>
+                <div class="button">Carnet des</div>
+                <div class="button">Règlements</div>
+                <div class="button">Paiement Frns</div>
+                <div class="button">Journal</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Personnel</div>
+            <div class="button-grid">
+                <div class="button">Personnel visite Médicale</div>
+                <div class="button">Personnel</div>
+                <div class="button">Permis de conduire</div>
+                <div class="button">Contact</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Service</div>
+            <div class="button-grid">
+                <div class="button">Contrat de leasing</div>
+                <div class="button">CIT</div>
+                <div class="button">Péages</div>
+                <div class="button">Cartes</div>
+                <div class="button">Bascules</
