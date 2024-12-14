@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enregistrement des employés</title>
     <style>
-        /* Styles CSS inchangés */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -94,6 +93,20 @@
         .btn:hover {
             background-color: #473A6A;
         }
+
+        .message {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #28a745;
+            text-align: center;
+        }
+
+        .error {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #e74c3c;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -101,9 +114,8 @@
 <div class="header">Enregistrement des Employés</div>
 
 <div class="container">
-    <!-- Formulaire pour enregistrer un employé -->
-    <div class="section-header">Général</div>
     <form id="formEmploye">
+        <div class="section-header">Général</div>
         <div class="form-row">
             <div class="form-group">
                 <label for="prenom">Prénom</label>
@@ -118,7 +130,6 @@
                 <input type="text" id="societe" name="societe">
             </div>
         </div>
-
         <div class="form-row">
             <div class="form-group">
                 <label for="fonction">Fonction</label>
@@ -138,7 +149,6 @@
                 <input type="text" id="experience" name="experience">
             </div>
         </div>
-
         <div class="form-row">
             <div class="form-group">
                 <label for="specialite">Spécialité</label>
@@ -157,7 +167,6 @@
                 </select>
             </div>
         </div>
-
         <div class="form-row">
             <div class="form-group">
                 <label for="salaire">Salaire brut</label>
@@ -172,64 +181,67 @@
                 <input type="number" id="enfants" name="enfants">
             </div>
         </div>
-
         <div class="section-header">Remarques</div>
         <div class="form-row">
             <div class="form-group" style="flex: 2;">
                 <textarea id="remarques" name="remarques" placeholder="Ajouter des remarques ici..."></textarea>
             </div>
         </div>
-
-        <!-- Bouton de soumission -->
         <div class="btn-container">
             <button type="submit" class="btn">Enregistrer</button>
         </div>
     </form>
+
+    <div class="message" id="successMessage"></div>
+    <div class="error" id="errorMessage"></div>
 </div>
 
 <script>
-    document.getElementById('formEmploye').addEventListener('submit', function(event) {
-        event.preventDefault(); // Empêche le rechargement de la page
+document.getElementById('formEmploye').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
 
-        const formData = {
-            prenom: document.getElementById('prenom').value,
-            nom: document.getElementById('nom').value,
-            societe: document.getElementById('societe').value,
-            fonction: document.getElementById('fonction').value,
-            permis: document.getElementById('permis').value,
-            experience: document.getElementById('experience').value,
-            specialite: document.getElementById('specialite').value,
-            cni: document.getElementById('cni').value,
-            statut: document.getElementById('statut').value,
-            salaire: document.getElementById('salaire').value,
-            prime: document.getElementById('prime').value,
-            enfants: document.getElementById('enfants').value,
-            remarques: document.getElementById('remarques').value,
-        };
+    // Fonction pour convertir les champs vides en zéro pour les champs numériques
+    function parseNumber(value) {
+        return value ? parseFloat(value) : 0;
+    }
 
-        fetch('http://localhost:3000/employes', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-        .then(response => {
-            if (response.ok) {
-                alert('Employé enregistré avec succès !');
-                document.getElementById('formEmploye').reset(); // Réinitialise le formulaire
-            } else {
-                response.json().then(data => {
-                    alert(`Erreur : ${data.error}`);
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Erreur lors de la requête :', error);
-            alert('Échec de l’enregistrement. Vérifiez la console pour plus de détails.');
-        });
+    const formData = {
+        prenom: document.getElementById('prenom').value,
+        nom: document.getElementById('nom').value,
+        societe: document.getElementById('societe').value,
+        fonction: document.getElementById('fonction').value,
+        permis: document.getElementById('permis').value,
+        experience: document.getElementById('experience').value,
+        specialite: document.getElementById('specialite').value,
+        cni: document.getElementById('cni').value,
+        statut: document.getElementById('statut').value,
+        salaire: parseNumber(document.getElementById('salaire').value), // Convertir en nombre ou zéro
+        prime: parseNumber(document.getElementById('prime').value), // Convertir en nombre ou zéro
+        enfants: parseNumber(document.getElementById('enfants').value), // Convertir en nombre ou zéro
+        remarques: document.getElementById('remarques').value
+    };
+
+    fetch('http://localhost:3000/api/employes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Données renvoyées par le serveur:', data);
+        if (data.error) {
+            document.getElementById('errorMessage').textContent = `Erreur: ${data.details}`;
+        } else {
+            document.getElementById('successMessage').textContent = 'Employé enregistré avec succès!';
+            document.getElementById('formEmploye').reset();
+        }
+    })
+    .catch(error => {
+        document.getElementById('errorMessage').textContent = `Échec de l'enregistrement des données. ${error}`;
+        console.error('Erreur:', error);
     });
+});
 </script>
 
-</body>
-</html>

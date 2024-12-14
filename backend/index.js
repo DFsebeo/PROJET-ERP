@@ -1,17 +1,17 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const employeesRoutes = require('./routes/employees'); // Import des routes des employés
+const employeesRoutes = require('./routes/employes'); // Import des routes des employés
 
 const app = express();
 const port = 3000;
 
 // Middlewares
-app.use(cors()); // Permet les requêtes Cross-Origin (entre frontend et backend)
-app.use(bodyParser.json()); // Parse les données JSON envoyées par le frontend
+app.use(cors());
+app.use(bodyParser.json());
 
 // Routes
-app.use('/employes', employeesRoutes); // Utilisation des routes pour les employés
+app.use('/api/employes', employeesRoutes); // Utilisation des routes pour les employés
 
 // Route par défaut pour gérer les 404
 app.use((req, res) => {
